@@ -1,13 +1,9 @@
 require 'rails_helper'
 
 feature "Control Panel Setting", :type => :feature do
-  before :each do
-    @admin_credentials = {username: 'test_admin', password: 'password'}
-    @admin = create(:admin, @admin_credentials)
-    login_as @admin, scope: :admin
-  end
+  include_context "login to admin panel"
 
-  scenario "Admin changes settings", :js => true do
+  scenario "Admin changes settings", :js => false do
     visit(admin_root_path)
     find('#setting').find('a').click
     within("#main_content") do
