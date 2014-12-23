@@ -99,6 +99,7 @@ group :development, :test do
   gem 'launchy'
   gem 'webmock'
   gem 'timecop'
+  gem 'faker'
 end
 
 # Follow the rules of 12Factor
