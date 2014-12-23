@@ -14,15 +14,24 @@ RSpec.describe EmailRegexp, :type => :model do
   end
 
   describe ".identify" do
-    xit "identifies an email" do
+    it "identifies an email" do
+      create(:university, :ntust)
+
       identity_data = EmailRegexp.identify('b10132023@mail.ntust.edu.tw')
       expect(identity_data).to be_a_kind_of(Hash)
-      expect(identity_data.university_code).to eq('NTUST')
-      expect(identity_data.department_code).to eq('32')
-      expect(identity_data.identity).to eq(:student)
-      expect(identity_data.identity_detail).to eq('bachelor')
-      expect(identity_data.sid).to eq('b10132023')
-      expect(identity_data.started_at.year).to eq(2012)
+      expect(identity_data[:university_code]).to eq('NTUST')
+      expect(identity_data[:department_code]).to eq('32')
+      expect(identity_data[:identity]).to eq('student')
+      expect(identity_data[:identity_detail]).to eq('bachelor')
+      expect(identity_data[:sid]).to eq('b10132023')
+      expect(identity_data[:started_at].year).to eq(2012)
+
+      # identity_data = EmailRegexp.identify('b9732023@mail.ntust.edu.tw')
+      identity_data = EmailRegexp.identify('AbC.De-#@mail.ntust.edu.tw')
+      expect(identity_data).to be_a_kind_of(Hash)
+      expect(identity_data[:university_code]).to eq('NTUST')
+      expect(identity_data[:identity]).to eq('staff')
+      expect(identity_data[:sid]).to eq('abc.de-')
     end
   end
 end
