@@ -48,6 +48,9 @@ gem 'dotenv-rails', :groups => [:development, :test]
 # Handle settings by rails-settings-cached
 gem 'rails-settings-cached', '0.4.1'
 
+# Database based asynchronous priority queue system
+gem 'delayed_job_active_record'
+
 # Add Slim support
 gem 'slim-rails'
 
