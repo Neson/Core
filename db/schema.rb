@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20141223111658) do
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true
   add_index "admins", ["username"], name: "index_admins_on_username", unique: true
 
-  create_table "email_regexps", force: true do |t|
+  create_table "email_patterns", force: true do |t|
     t.integer  "priority",             limit: 1, default: 0, null: false
     t.string   "university_code",                            null: false
     t.integer  "identity",             limit: 1,             null: false

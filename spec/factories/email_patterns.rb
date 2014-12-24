@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :email_regexp do
+  factory :email_pattern do
     university
     sequence(:priority) { |n| n }
     identity Constant::USER_IDENTITY.values.sample

@@ -6,7 +6,7 @@ RSpec.describe University, :type => :model do
   xit { should have_many(:colleges) }
   xit { should have_many(:departments) }
   xit { should have_many(:units) }
-  it { should have_many(:email_regexps) }
+  it { should have_many(:email_patterns) }
   it { should validate_presence_of :code }
   it { should validate_presence_of :name }
   it { should validate_presence_of :short_name }

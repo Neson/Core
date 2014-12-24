@@ -1,4 +1,4 @@
-class EmailRegexpValidator < ActiveModel::Validator
+class EmailPatternValidator < ActiveModel::Validator
   def validate(record)
     begin
       /#{record.regexp}/
@@ -8,14 +8,14 @@ class EmailRegexpValidator < ActiveModel::Validator
   end
 end
 
-class EmailRegexp < ActiveRecord::Base
+class EmailPattern < ActiveRecord::Base
   default_scope { order('priority ASC') }
 
   enum identity: Constant::USER_IDENTITY
   belongs_to :university, primary_key: :code, foreign_key: :university_code
 
   validates :university, :priority, :identity, :regexp, presence: true
-  validates_with EmailRegexpValidator
+  validates_with EmailPatternValidator
 
   def self.identify(email)
     all.each do |pattern|

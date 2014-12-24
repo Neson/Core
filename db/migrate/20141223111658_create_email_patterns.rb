@@ -1,6 +1,6 @@
-class CreateEmailRegexps < ActiveRecord::Migration
+class CreateEmailPatterns < ActiveRecord::Migration
   def change
-    create_table :email_regexps do |t|
+    create_table :email_patterns do |t|
       t.integer :priority, index: true, unique: false, limit: 1, default: 0, null: false
       t.string :university_code, index: true, unique: false, null: false
       t.integer :identity, limit: 1, null: false

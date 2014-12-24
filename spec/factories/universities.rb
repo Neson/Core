@@ -9,8 +9,8 @@ FactoryGirl.define do
       name '國立臺灣科技大學'
       short_name '台科大'
       after(:create) do |ntust|
-        ntust.email_regexps << create(:email_regexp, :ntust_student)
-        ntust.email_regexps << create(:email_regexp, :ntust_staff)
+        ntust.email_patterns << create(:email_pattern, :ntust_student)
+        ntust.email_patterns << create(:email_pattern, :ntust_staff)
       end
     end
   end
