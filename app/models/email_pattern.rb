@@ -49,6 +49,12 @@ class EmailPattern < ActiveRecord::Base
         cxt['n'] = hash[key]
         hash[key] = cxt.eval(pattern[eval_code])
       end
+
+      if key == :started_at
+        hash[key] = Time.at(hash[key].to_i)
+      else
+        hash[key] = hash[key].to_s
+      end
     end
 
     return hash
