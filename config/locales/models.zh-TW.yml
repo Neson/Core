@@ -3,6 +3,7 @@ zh-TW:
     models:
       setting: "系統設定"
       university: "學校資料"
+      unit: "學校單位資料"
       college: "學院資料"
       department: "系所資料"
       email_pattern: "電子郵件地址規則"
@@ -13,6 +14,23 @@ zh-TW:
         code_cont: "代碼"
         name: "全名"
         short_name: "簡稱"
+      unit:
+        code: "代碼"
+        code_cont: "代碼"
+        name: "全名"
+        short_name: "簡稱"
+      college:
+        code: "代碼"
+        code_cont: "代碼"
+        name: "全名"
+        short_name: "簡稱"
+      department:
+        code: "代碼"
+        code_cont: "代碼"
+        name: "全名"
+        short_name: "簡稱"
+        college: "所屬學院"
+        college_code: "所屬學院代碼"
       email_pattern:
         priority: "優先級"
         identity: "對應身份"
