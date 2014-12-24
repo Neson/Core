@@ -5,6 +5,7 @@ RSpec.describe EmailPattern, :type => :model do
   it { should validate_presence_of :priority }
   it { should validate_presence_of :identity }
   it { should validate_presence_of :regexp }
+  it { should belong_to(:university) }
 
   it "requires regexp to be valid" do
     email_pattern = build(:email_pattern, regexp: '?><')
@@ -15,7 +16,7 @@ RSpec.describe EmailPattern, :type => :model do
 
   describe ".identify" do
     it "identifies an email" do
-      create(:university, :ntust)
+      create(:university_ntust)
 
       identity_data = EmailPattern.identify('b10132023@mail.ntust.edu.tw')
       expect(identity_data).to be_a_kind_of(Hash)

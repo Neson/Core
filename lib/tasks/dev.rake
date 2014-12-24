@@ -7,7 +7,7 @@ namespace :dev do
 
     if Rails.env.development?
 
-      create(:university, :ntust)
+      create(:university_ntust)
 
       # create(:user, email: "user@example.com", password: "password")
     end
