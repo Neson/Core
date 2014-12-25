@@ -3,9 +3,11 @@ require "factory_girl"
 namespace :dev do
   desc "Seed data for development environment"
   task prime: "db:setup" do
+    include FactoryGirl::Syntax::Methods
 
     if Rails.env.development?
-      include FactoryGirl::Syntax::Methods
+
+      create(:university_ntust)
 
       # create(:user, email: "user@example.com", password: "password")
     end

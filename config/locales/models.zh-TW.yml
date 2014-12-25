@@ -2,3 +2,44 @@ zh-TW:
   activerecord:
     models:
       setting: "系統設定"
+      university: "學校資料"
+      unit: "學校單位資料"
+      college: "學院資料"
+      department: "系所資料"
+      email_pattern: "電子郵件地址規則"
+
+    attributes:
+      university:
+        code: "代碼"
+        code_cont: "代碼"
+        name: "全名"
+        short_name: "簡稱"
+      unit:
+        university: "學校"
+        code: "代碼"
+        code_cont: "代碼"
+        name: "全名"
+        short_name: "簡稱"
+      college:
+        university: "學校"
+        code: "代碼"
+        code_cont: "代碼"
+        name: "全名"
+        short_name: "簡稱"
+      department:
+        university: "學校"
+        code: "代碼"
+        code_cont: "代碼"
+        name: "全名"
+        short_name: "簡稱"
+        college: "所屬學院"
+        college_code: "所屬學院代碼"
+      email_pattern:
+        priority: "優先級"
+        identity: "對應身份"
+        regexp: "Email 正規表示式"
+        sid_eval: "學號運算式"
+        identity_detail_eval: "詳細身份運算式"
+        department_code_eval: "系所代碼運算式"
+        unit_code_eval: "單位代碼運算式"
+        started_at_eval: "開始日期運算式"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221114203) do
+ActiveRecord::Schema.define(version: 20141224105136) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -49,6 +49,39 @@ ActiveRecord::Schema.define(version: 20141221114203) do
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true
   add_index "admins", ["username"], name: "index_admins_on_username", unique: true
 
+  create_table "colleges", force: true do |t|
+    t.string   "university_code", null: false
+    t.string   "code",            null: false
+    t.string   "name",            null: false
+    t.string   "short_name",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "departments", force: true do |t|
+    t.string   "university_code", null: false
+    t.string   "college_code",    null: false
+    t.string   "code",            null: false
+    t.string   "name",            null: false
+    t.string   "short_name",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "email_patterns", force: true do |t|
+    t.integer  "priority",             limit: 1, default: 0, null: false
+    t.string   "university_code",                            null: false
+    t.integer  "identity",             limit: 1,             null: false
+    t.string   "regexp",                                     null: false
+    t.string   "sid_eval"
+    t.string   "identity_detail_eval"
+    t.string   "department_code_eval"
+    t.string   "unit_code_eval"
+    t.string   "started_at_eval"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "settings", force: true do |t|
     t.string   "var",                   null: false
     t.text     "value"
@@ -59,5 +92,24 @@ ActiveRecord::Schema.define(version: 20141221114203) do
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
+
+  create_table "units", force: true do |t|
+    t.string   "university_code", null: false
+    t.string   "code",            null: false
+    t.string   "name",            null: false
+    t.string   "short_name",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "universities", force: true do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.string   "short_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "universities", ["code"], name: "index_universities_on_code", unique: true
 
 end
