@@ -42,6 +42,8 @@ ActiveAdmin.register University do
   filter :code_cont
   filter :name
   filter :short_name
+  filter :created_at
+  filter :updated_at
 
   index do
     selectable_column
@@ -52,8 +54,34 @@ ActiveAdmin.register University do
     actions
   end
 
-  sidebar "說明", only: :edit do
-    p 'Some description...'
+  sidebar "說明", only: [:edit, :new] do
+    ul do
+      li do
+        strong '基本資料：'
+        br
+        text_node '代碼、簡稱、全名等基本資料'
+      end
+      li do
+        strong 'Email 模型：'
+        br
+        text_node '當使用者驗證 Email 時，若符合模型所設規則，會自動開通該校身份，並填入資料'
+      end
+      li do
+        strong '單位：'
+        br
+        text_node '校內單位'
+      end
+      li do
+        strong '學院：'
+        br
+        text_node '學院底下可以有多個系所'
+      end
+      li do
+        strong '系所：'
+        br
+        text_node '系所可以隸屬於一個學院'
+      end
+    end
   end
 
   show do

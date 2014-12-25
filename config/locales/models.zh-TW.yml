@@ -15,16 +15,19 @@ zh-TW:
         name: "全名"
         short_name: "簡稱"
       unit:
+        university: "學校"
         code: "代碼"
         code_cont: "代碼"
         name: "全名"
         short_name: "簡稱"
       college:
+        university: "學校"
         code: "代碼"
         code_cont: "代碼"
         name: "全名"
         short_name: "簡稱"
       department:
+        university: "學校"
         code: "代碼"
         code_cont: "代碼"
         name: "全名"
